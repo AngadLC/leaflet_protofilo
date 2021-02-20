@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About: leaflet project</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- font aswome cd -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+
+    <!-- custome css -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- vertical nav bar -->
+        <nav id="sidebar">
+
+            <div class="sidebar-header">
+                <h3>Choose what to do</h3>
+            </div>
+            <ul class="lisst-unstyled components">
+                <li>
+                    <a href="./index.html"  aria-expanded="false">Home</a>
+                </li>
+                <li>
+                    <a href="./About.html">About</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Action</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <!-- <button id="track" onclick="gettrack()">Live tracking</button> -->
+                            <a href="#" id="track" onclick="gettrack()">Live tracking</a>
+                        </li>
+                        <li>
+                            <a href="#" id="draw" onclick="getdrawplugins()">Draw</a>
+                        </li>
+                        <li>
+                            <a href="#" id="fileload" onclick="getfileloadplugins()">FileLayer load local GPX, KML,
+                                GeoJSON files</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">Policy</a>
+                </li>
+
+                <li>
+                    <a href="./Contact.html" id="contact">Contact Us</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- toogle button and map content -->
+        <div id="content">
+            <!-- toogle nav bar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn  btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <!-- <span>Leaflet</span> -->
+                    </button>
+                </div>
+                <!-- content -->
+
+            </nav>
+            <div id="contact">
+                <div class="container">
+                    <h2 class="heading">Contact Me</h2>
+                    <h2 style="text-align: center;">I'd Love to Help!</h2>
+                    <p style="text-align: center;">I Like to create things with fun, Make spatial webmaps</p>
+                    <br><br>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <form action="https://formspree.io/f/mjvpdlrg" method="POST">
+                                <input type="Text" name="text" required="" placeholder="Your Name" class="form-control">
+                                <br>
+                                <input type="Email" name="Email" required="" placeholder="Your Email"
+                                    class="form-control">
+                                <br>
+
+                                <textarea rows="6" placeholder="Message" required="" class="form-control"></textarea>
+                                <br>
+                                <center>
+                                    <button class="btn btn-info2" style="background-color: blue;">Submit</button>
+                                </center>
+                                <br><br><br><br>
+
+                            </form>
+
+                        </div>
+
+                        <div class="col-md-1"></div>
+
+
+                        <div class="col-md-5">
+                            <br>
+                            <p class="icn"><i class="fa fa-map-marker"></i> &nbsp;&nbsp; Pokhara, nepal </p>
+                            <p class="icn"> <i class="fa fa-phone"></i> &nbsp;&nbsp; +9779846825487 </p>
+                            <p class="icn"><i class="fa fa-envelope"></i> &nbsp;&nbsp; angadlamichhane1@gmail.com </p>
+
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <!-- jquery -->
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                    crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                    crossorigin="anonymous"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                    crossorigin="anonymous"></script>
+                <!-- custom js -->
+                <script src="./main.js"></script>
+</body>
+
+</html>

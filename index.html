@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Leaflet project</title>
+	<!-- leaflet css -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+		crossorigin="" />
+	<!-- Make sure you put this AFTER Leaflet's CSS -->
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+		crossorigin=""></script>
+	<!-- geocoding plugin -->
+	<link rel="stylesheet" href="./Control.OSMGeocoder.css">
+	<script src="./Control.OSMGeocoder.js"></script>
+
+	<!-- leaflet draw plugin -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"
+		integrity="sha512-gc3xjCmIy673V6MyOAZhIW93xhM9ei1I+gLbmFjUHIjocENRsLX/QUE1htk5q1XV2D/iie/VQ8DXI6Vu8bexvQ=="
+		crossorigin="anonymous" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"
+		integrity="sha512-ozq8xQKq6urvuU6jNgkfqAmT7jKN2XumbrX1JiB3TnF7tI48DPI4Gy1GXKD/V3EExgAs1V+pRO7vwtS1LHg0Gw=="
+		crossorigin="anonymous"></script>
+	<!-- leaflet file load -->
+	<script src="./leaflet.filelayer.js"></script>
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- font aswome cd -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+	<!-- custome css -->
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+	<div class="wrapper">
+		<!-- vertical nav bar -->
+		<nav id="sidebar">
+
+			<div class="sidebar-header">
+				<h3>Choose what to do</h3>
+			</div>
+			<ul class="lisst-unstyled components">
+				<li class="active">
+					<a href="./index.html" data-toggle="collapse" aria-expanded="false">Home</a>
+
+				</li>
+				<li>
+					<a href="./About.html">About</a>
+				</li>
+				<li>
+					<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+						class="dropdown-toggle">Action</a>
+					<ul class="collapse list-unstyled" id="pageSubmenu">
+						<li>
+							<!-- <button id="track" onclick="gettrack()">Live tracking</button> -->
+							<a href="#" id="track" onclick="gettrack()">Live tracking</a>
+						</li>
+						<li>
+							<a href="#" id="draw" onclick="getdrawplugins()">Draw</a>
+						</li>
+						<li>
+							<a href="#" id="fileload" onclick="getfileloadplugins()">FileLayer load local GPX, KML,
+								GeoJSON files</a>
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="#">Policy</a>
+				</li>
+
+				<li>
+					<a href="./Contact.html">Contact Me</a>
+				</li>
+
+			</ul>
+		</nav>
+
+		<!-- toogle button and map content -->
+		<div id="content">
+			<!-- toogle nav bar -->
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="container-fluid">
+					<button type="button" id="sidebarCollapse" class="btn  btn-info">
+						<i class="fas fa-align-left"></i>
+						<!-- <span>Leaflet</span> -->
+					</button>
+				</div>
+			</nav>
+			<!-- map -->
+			<div id="mapid" class="map"></div>
+
+		</div>
+
+
+	</div>
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<!-- custom js -->
+	<script src="./main.js"></script>
+</body>
+
+</html>
