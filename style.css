@@ -80,12 +80,7 @@ a[data-toggle="collapse"]{
 	right: 20%;
 	transform: translateY(-50%);
 }
-/* ul ul a{
-	font-size: 0.9em !important;
-	padding-left: 30px !important;
-	background: #6d7fcc;
-} */
-ul ul button{
+ul ul a{
 	font-size: 0.9em !important;
 	padding-left: 30px !important;
 	background: #6d7fcc;
@@ -94,7 +89,8 @@ ul ul button{
 #content{
 	width: 100%;
 	padding: 20px;
-	min-height: 100vh;
+	min-height: 30vh;
+	max-height: 80vh;
 	transition: all 0.3s;
 }
 
@@ -128,7 +124,7 @@ hr {
 /* map class */
 .map{
 	width: 100%;
-	height: 580px;
+	height: 400px;
 }
 
 

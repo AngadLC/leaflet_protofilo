@@ -108,22 +108,17 @@ function getdrawplugins() {
 }
 // getfileloadplugins()
 function getfileloadplugins() {
+    // creating the style
+    var style = {color:'red', opacity: 1.0, fillOpacity: 1.0, weight: 2,
+    clickable: false};
+    // custom label
+    L.Control.FileLayerLoad.LABEL = '<i class="fa fa-folder-open"></i>';
     L.Control.fileLayerLoad({
-        // Allows you to use a customized version of L.geoJson.
-        // For example if you are using the Proj4Leaflet leaflet plugin,
-        // you can pass L.Proj.geoJson and load the files into the
-        // L.Proj.GeoJson instead of the L.geoJson.
-        layer: L.geoJson,
-        // See http://leafletjs.com/reference.html#geojson-options
-        layerOptions: {style: {color:'red'}},
-        // Add to map after loading (default: true) ?
-        addToMap: true,
-        // File size limit in kb (default: 1024) ?
-        fileSizeLimit: 1024,
-        // Restrict accepted file formats (default: .geojson, .json, .kml, and .gpx) ?
-        formats: [
-            '.geojson',
-            '.kml'
-        ]
+    fitBounds: true,
+    layerOptions: {style: style,
+    pointToLayer: function (data, latlng) {
+    return L.circleMarker(latlng, {style: style});
+    }
+},
     }).addTo(mymap);
 }
