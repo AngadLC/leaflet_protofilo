@@ -122,3 +122,35 @@ function getfileloadplugins() {
 },
     }).addTo(mymap);
 }
+// getting the full screen
+mymap.addControl(new L.Control.Fullscreen({
+    title: {
+        'false': 'View Fullscreen',
+        'true': 'Exit Fullscreen'
+    }
+}));
+// mouse coordinate
+L.control.coordinates({
+	position:"bottomleft", //optional default "bootomright"
+	decimals:2, //optional default 4
+	decimalSeperator:".", //optional default "."
+	labelTemplateLat:"Latitude: {y}", //optional default "Lat: {y}"
+	labelTemplateLng:"Longitude: {x}", //optional default "Lng: {x}"
+	enableUserInput:true, //optional default true
+	useDMS:false, //optional default false
+	useLatLngOrder: true, //ordering of labels, default false-> lng-lat
+    markerType: L.marker, //optional default L.marker
+	markerProps: {
+
+        title:`This is the place where you enter `
+    }, //optional default {},
+	labelFormatterLng : function(lng){return lng.toFixed(2)+" lng"}, //optional default none,
+	labelFormatterLat : function(lat){return lat.toFixed(2)+" lat"}, //optional default none
+    //optional default none
+	// customLabelFcn: function(latLonObj, opts) { "Geohash: " + encodeGeoHash(latLonObj.lat, latLonObj.lng)} 
+}).addTo(mymap);
+function encodeGeoHash(lat,lng){
+
+    console.log(lat),
+    console.log(lng)
+}
