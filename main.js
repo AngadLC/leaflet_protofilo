@@ -109,17 +109,20 @@ function getdrawplugins() {
 // getfileloadplugins()
 function getfileloadplugins() {
     // creating the style
-    var style = {color:'red', opacity: 1.0, fillOpacity: 1.0, weight: 2,
-    clickable: false};
+    var style = {
+        color: 'red', opacity: 1.0, fillOpacity: 1.0, weight: 2,
+        clickable: false
+    };
     // custom label
     L.Control.FileLayerLoad.LABEL = '<i class="fa fa-folder-open"></i>';
     L.Control.fileLayerLoad({
-    fitBounds: true,
-    layerOptions: {style: style,
-    pointToLayer: function (data, latlng) {
-    return L.circleMarker(latlng, {style: style});
-    }
-},
+        fitBounds: true,
+        layerOptions: {
+            style: style,
+            pointToLayer: function (data, latlng) {
+                return L.circleMarker(latlng, { style: style });
+            }
+        },
     }).addTo(mymap);
 }
 // getting the full screen
@@ -131,26 +134,48 @@ mymap.addControl(new L.Control.Fullscreen({
 }));
 // mouse coordinate
 L.control.coordinates({
-	position:"bottomleft", //optional default "bootomright"
-	decimals:2, //optional default 4
-	decimalSeperator:".", //optional default "."
-	labelTemplateLat:"Latitude: {y}", //optional default "Lat: {y}"
-	labelTemplateLng:"Longitude: {x}", //optional default "Lng: {x}"
-	enableUserInput:true, //optional default true
-	useDMS:false, //optional default false
-	useLatLngOrder: true, //ordering of labels, default false-> lng-lat
+    position: "bottomleft", //optional default "bootomright"
+    decimals: 2, //optional default 4
+    decimalSeperator: ".", //optional default "."
+    labelTemplateLat: "Latitude: {y}", //optional default "Lat: {y}"
+    labelTemplateLng: "Longitude: {x}", //optional default "Lng: {x}"
+    enableUserInput: true, //optional default true
+    useDMS: false, //optional default false
+    useLatLngOrder: true, //ordering of labels, default false-> lng-lat
     markerType: L.marker, //optional default L.marker
-	markerProps: {
+    markerProps: {
 
-        title:`This is the place where you enter `
+        title: `This is the place where you enter `
     }, //optional default {},
-	labelFormatterLng : function(lng){return lng.toFixed(2)+" lng"}, //optional default none,
-	labelFormatterLat : function(lat){return lat.toFixed(2)+" lat"}, //optional default none
+    labelFormatterLng: function (lng) { return lng.toFixed(2) + " lng" }, //optional default none,
+    labelFormatterLat: function (lat) { return lat.toFixed(2) + " lat" }, //optional default none
     //optional default none
-	// customLabelFcn: function(latLonObj, opts) { "Geohash: " + encodeGeoHash(latLonObj.lat, latLonObj.lng)} 
+    // customLabelFcn: function(latLonObj, opts) { "Geohash: " + encodeGeoHash(latLonObj.lat, latLonObj.lng)} 
 }).addTo(mymap);
-function encodeGeoHash(lat,lng){
+function encodeGeoHash(lat, lng) {
 
     console.log(lat),
-    console.log(lng)
+        console.log(lng)
 }
+
+// adding scale
+L.control.scale({
+    position:'bottomright',
+    metric:true,
+    imperical:false
+}).addTo(mymap)
+
+// adding watermark
+L.Control.Watermark = L.Control.extend({
+    onAdd:function(map){
+        var image = L.DomUtil.create('img');
+        image.src = 'PAS074BGE004.jpg';
+        image.style.width = '30px';
+        return image
+    },
+    onRemove:function(map){},   
+});
+L.control.watermark = function(opts){
+    return new L.Control.Watermark(opts)
+}
+L.control.watermark().addTo(mymap)
